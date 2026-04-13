@@ -2,7 +2,7 @@
 // ============================================================
 // db.php — Database Connection (PDO)
 // ============================================================
-
+$conn = new PDO("mysql:host=mysql.railway.internal;dbname=railway","root","JhAUmBXBaIKmokLGZkhjudNlXrnKqQPw");
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'taskflow');
 define('DB_USER', 'root');       // Change for production
