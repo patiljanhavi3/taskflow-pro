@@ -13,14 +13,13 @@ $token = csrf_token();
 // Stats for top bar
 $db    = getDB();
 $uid   = (int)$user['id'];
-$stats = $db->prepare("SELECT
+$stats = $db->query("SELECT
     COUNT(*) as total,
     SUM(status='completed') as completed,
     SUM(status='pending') as pending,
     SUM(priority='high' AND status='pending') as urgent
-    FROM tasks WHERE user_id=?");
-$stats->execute([$uid]);
-$s = $stats->fetch();
+    FROM tasks WHERE user_id=$uid");
+$s = $stats->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en" data-theme="<?= htmlspecialchars($theme) ?>">
